@@ -11,6 +11,7 @@ public:
 		put
 	};
 	PayOff(double strike, OptionType optType);
+	double operator()(double spot)const;
 	~PayOff(){}
 
 private:

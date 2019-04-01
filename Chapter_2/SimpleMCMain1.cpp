@@ -12,7 +12,7 @@
 
 
 double SimpleMonteCarlo1(double Expiry, 
-						 double Strike, 
+						 PayOff const& payOff,
 						 double Spot, 
 						 double Vol, 
 						 double r, 
@@ -32,8 +32,7 @@ double SimpleMonteCarlo1(double Expiry,
 	{
 		double thisGaussian = gaussian.gaussian();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		double thisPayoff = thisSpot - Strike;
-    	thisPayoff = thisPayoff >0 ? thisPayoff : 0;
+		double thisPayoff = payOff(thisSpot);
 		runningSum += thisPayoff;
 	}
 

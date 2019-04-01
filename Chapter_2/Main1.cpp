@@ -38,42 +38,75 @@ int main()
 
 	GaussianSimul gaussianSimul;
 
+	PayOff callPayOff(Strike, PayOff::call);
+	PayOff putPayOff(Strike, PayOff::put);
+
 	// simul
 	double result = SimpleMonteCarlo1(Expiry,
-		Strike,
+		callPayOff,
 		Spot,
 		Vol,
 		r,
 		NumberOfPaths,
 		gaussianSimul);
 
-	std::cout << "the price gaussianSimul is " << result << "\n";
+	std::cout << "the call price gaussianSimul is " << result << "\n";
+
+	result = SimpleMonteCarlo1(Expiry,
+		putPayOff,
+		Spot,
+		Vol,
+		r,
+		NumberOfPaths,
+		gaussianSimul);
+
+	std::cout << "the put price gaussianSimul is " << result << "\n";
 
 	GaussianBoxMuller gaussianBM;
 
 	// BM
 	result = SimpleMonteCarlo1(Expiry,
-		Strike,
+		callPayOff,
 		Spot,
 		Vol,
 		r,
 		NumberOfPaths,
 		gaussianBM);
 
-	std::cout << "the price gaussianBM is " << result << "\n";
+	std::cout << "the call price gaussianBM is " << result << "\n";
+
+	result = SimpleMonteCarlo1(Expiry,
+		putPayOff,
+		Spot,
+		Vol,
+		r,
+		NumberOfPaths,
+		gaussianBM);
+
+	std::cout << "the put price gaussianBM is " << result << "\n";
 
 	GaussianBoxMullerOrig gaussianBMorig;
 
 	// BM original
 	result = SimpleMonteCarlo1(Expiry,
-		Strike,
+		callPayOff,
 		Spot,
 		Vol,
 		r,
 		NumberOfPaths,
 		gaussianBMorig);
 
-	std::cout << "the price gaussianBMorig is " << result << "\n";
+	std::cout << "the call price gaussianBMorig is " << result << "\n";
+
+	result = SimpleMonteCarlo1(Expiry,
+		putPayOff,
+		Spot,
+		Vol,
+		r,
+		NumberOfPaths,
+		gaussianBMorig);
+
+	std::cout << "the put price gaussianBMorig is " << result << "\n";
 
 	double tmp;
 	std::cin >> tmp;
