@@ -38,8 +38,8 @@ int main()
 
 	GaussianSimul gaussianSimul;
 
-	PayOff callPayOff(Strike, PayOff::call);
-	PayOff putPayOff(Strike, PayOff::put);
+	PayOffCall callPayOff(Strike);
+	PayOffPut putPayOff(Strike);
 
 	// simul
 	double result = SimpleMonteCarlo1(Expiry,
