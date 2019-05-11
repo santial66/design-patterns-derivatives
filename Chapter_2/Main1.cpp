@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <SimpleMCMain1.h>
+#include <PayOff1.h>
+#include <DoubleDigital.h>
 
 int main()
 {
@@ -40,6 +42,7 @@ int main()
 
 	PayOffCall callPayOff(Strike);
 	PayOffPut putPayOff(Strike);
+	PayoffDoubleDigital doubleDigital(Strike);
 
 	// simul
 	double result = SimpleMonteCarlo1(Expiry,
@@ -107,6 +110,16 @@ int main()
 		gaussianBMorig);
 
 	std::cout << "the put price gaussianBMorig is " << result << "\n";
+
+	result = SimpleMonteCarlo1(Expiry,
+		doubleDigital,
+		Spot,
+		Vol,
+		r,
+		NumberOfPaths,
+		gaussianBM);
+
+	std::cout << "the double digital price gaussianBM is " << result << "\n";
 
 	double tmp;
 	std::cin >> tmp;
