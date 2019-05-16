@@ -15,6 +15,8 @@ int main()
 
 	double Expiry;
 	double Strike;
+	double lowerLevel;
+	double upperLevel;
 	double Spot;
 	double Vol;
 	double r;
@@ -25,6 +27,12 @@ int main()
 
 	std::cout << "\nEnter strike\n";
 	std::cin >> Strike;
+
+	std::cout << "\nEnter lower level\n";
+	std::cin >> lowerLevel;
+
+	std::cout << "\nEnter upper level\n";
+	std::cin >> upperLevel;
 
 	std::cout << "\nEnter spot\n";
 	std::cin >> Spot;
@@ -42,7 +50,7 @@ int main()
 
 	PayOffCall callPayOff(Strike);
 	PayOffPut putPayOff(Strike);
-	PayoffDoubleDigital doubleDigital(Strike);
+	PayoffDoubleDigital doubleDigital(lowerLevel, upperLevel);
 
 	// simul
 	double result = SimpleMonteCarlo1(Expiry,

@@ -3,6 +3,7 @@
 #define SIMPLEMCMAIN1_H
 
 #include <Random1.h>
+#include <PayOff1.h>
 
 
 double SimpleMonteCarlo1(double Expiry,
