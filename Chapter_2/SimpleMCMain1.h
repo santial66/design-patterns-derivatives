@@ -3,11 +3,10 @@
 #define SIMPLEMCMAIN1_H
 
 #include <Random1.h>
-#include <PayOff1.h>
+#include <Vanilla.h>
 
 
-double SimpleMonteCarlo1(double Expiry,
-	PayOff const& payOff,
+double SimpleMonteCarlo1(VanillaOption const& theOption,
 	double Spot,
 	double Vol,
 	double r,

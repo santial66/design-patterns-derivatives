@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <SimpleMCMain1.h>
-#include <PayOff1.h>
+#include <Vanilla.h>
 #include <DoubleDigital.h>
 
 int main()
@@ -52,9 +52,12 @@ int main()
 	PayOffPut putPayOff(Strike);
 	PayoffDoubleDigital doubleDigital(lowerLevel, upperLevel);
 
+	VanillaOption callVanilla(callPayOff, Expiry);
+	VanillaOption putVanilla(putPayOff, Expiry);
+	VanillaOption doubleDigitalVanilla(doubleDigital, Expiry);
+
 	// simul
-	double result = SimpleMonteCarlo1(Expiry,
-		callPayOff,
+	double result = SimpleMonteCarlo1(callVanilla,
 		Spot,
 		Vol,
 		r,
@@ -63,8 +66,7 @@ int main()
 
 	std::cout << "the call price gaussianSimul is " << result << "\n";
 
-	result = SimpleMonteCarlo1(Expiry,
-		putPayOff,
+	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
 		Vol,
 		r,
@@ -76,8 +78,7 @@ int main()
 	GaussianBoxMuller gaussianBM;
 
 	// BM
-	result = SimpleMonteCarlo1(Expiry,
-		callPayOff,
+	result = SimpleMonteCarlo1(callVanilla,
 		Spot,
 		Vol,
 		r,
@@ -86,8 +87,7 @@ int main()
 
 	std::cout << "the call price gaussianBM is " << result << "\n";
 
-	result = SimpleMonteCarlo1(Expiry,
-		putPayOff,
+	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
 		Vol,
 		r,
@@ -99,8 +99,7 @@ int main()
 	GaussianBoxMullerOrig gaussianBMorig;
 
 	// BM original
-	result = SimpleMonteCarlo1(Expiry,
-		callPayOff,
+	result = SimpleMonteCarlo1(callVanilla,
 		Spot,
 		Vol,
 		r,
@@ -109,8 +108,7 @@ int main()
 
 	std::cout << "the call price gaussianBMorig is " << result << "\n";
 
-	result = SimpleMonteCarlo1(Expiry,
-		putPayOff,
+	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
 		Vol,
 		r,
@@ -119,8 +117,7 @@ int main()
 
 	std::cout << "the put price gaussianBMorig is " << result << "\n";
 
-	result = SimpleMonteCarlo1(Expiry,
-		doubleDigital,
+	result = SimpleMonteCarlo1(doubleDigitalVanilla,
 		Spot,
 		Vol,
 		r,

@@ -11,15 +11,14 @@
 #include <cmath>
 
 
-double SimpleMonteCarlo1(double Expiry, 
-						 PayOff const& payOff,
+double SimpleMonteCarlo1(VanillaOption const& theOption,
 						 double Spot, 
 						 double Vol, 
 						 double r, 
 						 unsigned long NumberOfPaths,
 						 GetOneGaussian& gaussian)
 {
-
+	double Expiry = theOption.getExpiry();
 	double variance = Vol * Vol * Expiry;
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
@@ -32,7 +31,7 @@ double SimpleMonteCarlo1(double Expiry,
 	{
 		double thisGaussian = gaussian.gaussian();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		double thisPayoff = payOff(thisSpot);
+		double thisPayoff = theOption.optionPayoff(thisSpot);
 		runningSum += thisPayoff;
 	}
 
