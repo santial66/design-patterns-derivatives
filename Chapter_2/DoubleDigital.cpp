@@ -14,3 +14,8 @@ double PayoffDoubleDigital::operator()(double spot) const
 	return 1.0;
 
 }
+
+PayoffDoubleDigital* PayoffDoubleDigital::clone() const
+{
+	return new PayoffDoubleDigital(*this);
+}

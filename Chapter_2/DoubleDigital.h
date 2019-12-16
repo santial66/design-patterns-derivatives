@@ -10,6 +10,7 @@ class PayoffDoubleDigital:public PayOff
 public:
 	PayoffDoubleDigital(double lowerLevel, double upperLevel);
 	virtual double operator()(double spot)const;
+	virtual PayoffDoubleDigital* clone()const;
 	virtual ~PayoffDoubleDigital() {}
 
 private:
