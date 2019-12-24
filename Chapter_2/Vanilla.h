@@ -8,13 +8,15 @@ class VanillaOption
 {
 public:
 	VanillaOption(PayOff& payOff, double const expiry);
+	VanillaOption(VanillaOption const& orig);
+	VanillaOption& operator=(VanillaOption const& orig);
 	double getExpiry()const;
 	double optionPayoff(double spot)const;
-	~VanillaOption(){}
+	~VanillaOption();
 
 private:
 	double _expiry;
-	PayOff& _payOff;
+	PayOff* _payOff;
 
 };
 
