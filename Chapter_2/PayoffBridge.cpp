@@ -19,3 +19,13 @@ PayoffBridge & PayoffBridge::operator=(PayoffBridge const & orig)
 	}
 	return *this;
 }
+
+double PayoffBridge::operator()(double const Spot) const
+{
+	return (*_payOff)(Spot);
+}
+
+PayoffBridge::~PayoffBridge()
+{
+	delete _payOff;
+}
