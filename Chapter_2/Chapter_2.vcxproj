@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DoubleDigital.h" />
+    <ClInclude Include="Parameters.h" />
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayoffBridge.h" />
     <ClInclude Include="Random1.h" />
