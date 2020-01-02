@@ -56,11 +56,14 @@ int main()
 	VanillaOption putVanilla(putPayOff, Expiry);
 	VanillaOption doubleDigitalVanilla(doubleDigital, Expiry);
 
+	ParametersConstant volParam(Vol);
+	ParametersConstant rParam(r);
+
 	// simul
 	double result = SimpleMonteCarlo1(callVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianSimul);
 
@@ -68,8 +71,8 @@ int main()
 
 	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianSimul);
 
@@ -80,8 +83,8 @@ int main()
 	// BM
 	result = SimpleMonteCarlo1(callVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianBM);
 
@@ -89,8 +92,8 @@ int main()
 
 	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianBM);
 
@@ -101,8 +104,8 @@ int main()
 	// BM original
 	result = SimpleMonteCarlo1(callVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianBMorig);
 
@@ -110,8 +113,8 @@ int main()
 
 	result = SimpleMonteCarlo1(putVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianBMorig);
 
@@ -119,8 +122,8 @@ int main()
 
 	result = SimpleMonteCarlo1(doubleDigitalVanilla,
 		Spot,
-		Vol,
-		r,
+		volParam,
+		rParam,
 		NumberOfPaths,
 		gaussianBM);
 

@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="Main1.cpp" />
+    <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayoffBridge.cpp" />
     <ClCompile Include="Random1.cpp" />

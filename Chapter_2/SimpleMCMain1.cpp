@@ -12,18 +12,18 @@
 
 
 double SimpleMonteCarlo1(VanillaOption const& theOption,
-						 double Spot, 
-						 double Vol, 
-						 double r, 
-						 unsigned long NumberOfPaths,
-						 GetOneGaussian& gaussian)
+						double Spot, 
+						Parameters const& Vol,
+						Parameters const& r,
+						unsigned long NumberOfPaths,
+						GetOneGaussian& gaussian)
 {
 	double Expiry = theOption.getExpiry();
-	double variance = Vol * Vol * Expiry;
+	double variance = Vol.IntegralSquare(0, Expiry);
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
 
-	double movedSpot = Spot * exp(r * Expiry + itoCorrection);
+	double movedSpot = Spot * exp(r.Integral(0,  Expiry) + itoCorrection);
 	double thisSpot;
 	double runningSum=0;
 
@@ -36,7 +36,7 @@ double SimpleMonteCarlo1(VanillaOption const& theOption,
 	}
 
 	double mean = runningSum / NumberOfPaths;
-	mean *= exp(-r * Expiry);
+	mean *= exp(-r.Integral(0, Expiry));
 	return mean;
 }
 

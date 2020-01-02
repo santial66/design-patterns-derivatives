@@ -4,12 +4,13 @@
 
 #include <Random1.h>
 #include <Vanilla.h>
+#include <Parameters.h>
 
 
 double SimpleMonteCarlo1(VanillaOption const& theOption,
 	double Spot,
-	double Vol,
-	double r,
+	Parameters const& Vol,
+	Parameters const& r,
 	unsigned long NumberOfPaths,
 	GetOneGaussian& gaussian);
 
