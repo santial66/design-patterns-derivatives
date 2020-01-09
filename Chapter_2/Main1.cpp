@@ -59,13 +59,16 @@ int main()
 	ParametersConstant volParam(Vol);
 	ParametersConstant rParam(r);
 
+	StatisticsMean gatherer;
+
 	// simul
-	double result = SimpleMonteCarlo1(callVanilla,
+	SimpleMonteCarlo1(callVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianSimul);
+		gaussianSimul,
+		gatherer);
 
 	std::cout << "the call price gaussianSimul is " << result << "\n";
 

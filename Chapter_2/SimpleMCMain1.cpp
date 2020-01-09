@@ -11,12 +11,13 @@
 #include <cmath>
 
 
-double SimpleMonteCarlo1(VanillaOption const& theOption,
+void SimpleMonteCarlo1(VanillaOption const& theOption,
 						double Spot, 
 						Parameters const& Vol,
 						Parameters const& r,
 						unsigned long NumberOfPaths,
-						GetOneGaussian& gaussian)
+						GetOneGaussian& gaussian,
+						StatisticsMC& gatherer)
 {
 	double Expiry = theOption.getExpiry();
 	double variance = Vol.IntegralSquare(0, Expiry);
@@ -25,19 +26,16 @@ double SimpleMonteCarlo1(VanillaOption const& theOption,
 
 	double movedSpot = Spot * exp(r.Integral(0,  Expiry) + itoCorrection);
 	double thisSpot;
-	double runningSum=0;
-
+	double discounting = exp(-r.Integral(0, Expiry));
+	
 	for (unsigned long i=0; i < NumberOfPaths; ++i)
 	{
 		double thisGaussian = gaussian.gaussian();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
 		double thisPayoff = theOption.optionPayoff(thisSpot);
-		runningSum += thisPayoff;
-	}
-
-	double mean = runningSum / NumberOfPaths;
-	mean *= exp(-r.Integral(0, Expiry));
-	return mean;
+		gatherer.DumpOneResult(discounting * thisPayoff);		
+	}	
+	return;
 }
 
 
@@ -56,4 +54,3 @@ double SimpleMonteCarlo1(VanillaOption const& theOption,
  * suitability of this software for any purpose. It is provided
  * "as is" without express or implied warranty.
 */
-

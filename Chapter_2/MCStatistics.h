@@ -32,7 +32,7 @@ private:
 	double _runningSum;
 	unsigned long _pathsDone;
 
-}
+};
 
 
 

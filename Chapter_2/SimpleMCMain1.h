@@ -5,13 +5,15 @@
 #include <Random1.h>
 #include <Vanilla.h>
 #include <Parameters.h>
+#include <MCStatistics.h>
 
 
-double SimpleMonteCarlo1(VanillaOption const& theOption,
+void SimpleMonteCarlo1(VanillaOption const& theOption,
 	double Spot,
 	Parameters const& Vol,
 	Parameters const& r,
 	unsigned long NumberOfPaths,
-	GetOneGaussian& gaussian);
+	GetOneGaussian& gaussian,
+	StatisticsMC& gatherer);
 
 #endif
