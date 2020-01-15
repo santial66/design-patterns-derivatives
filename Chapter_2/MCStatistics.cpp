@@ -19,6 +19,12 @@ std::vector<std::vector<double>> StatisticsMean::GetResultSoFar() const
 	return results;
 }
 
+void StatisticsMean::reset()
+{
+	_runningSum = 0.0;
+	_pathsDone = 0;
+}
+
 StatisticsMean * StatisticsMean::clone() const
 {
 	return new StatisticsMean(*this);

@@ -11,6 +11,7 @@ public:
 
 	virtual void DumpOneResult(double result) = 0;
 	virtual std::vector<std::vector<double> > GetResultSoFar() const = 0;
+	virtual void reset() = 0;
 
 	virtual StatisticsMC* clone()const = 0;
 	virtual ~StatisticsMC() {}
@@ -25,6 +26,7 @@ public:
 
 	virtual void DumpOneResult(double result);
 	virtual std::vector<std::vector<double> > GetResultSoFar() const;
+	virtual void reset();
 
 	virtual StatisticsMean* clone()const;
 	virtual ~StatisticsMean() {}

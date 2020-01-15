@@ -70,69 +70,82 @@ int main()
 		gaussianSimul,
 		gatherer);
 
-	std::cout << "the call price gaussianSimul is " << result << "\n";
+	std::cout << "the call price gaussianSimul is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
-	result = SimpleMonteCarlo1(putVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(putVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianSimul);
+		gaussianSimul,
+		gatherer);
 
-	std::cout << "the put price gaussianSimul is " << result << "\n";
+	std::cout << "the put price gaussianSimul is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
 	GaussianBoxMuller gaussianBM;
 
 	// BM
-	result = SimpleMonteCarlo1(callVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(callVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianBM);
+		gaussianBM,
+		gatherer);
 
-	std::cout << "the call price gaussianBM is " << result << "\n";
+	std::cout << "the call price gaussianBM is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
-	result = SimpleMonteCarlo1(putVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(putVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianBM);
+		gaussianBM,
+		gatherer);
 
-	std::cout << "the put price gaussianBM is " << result << "\n";
+	std::cout << "the put price gaussianBM is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
 	GaussianBoxMullerOrig gaussianBMorig;
 
 	// BM original
-	result = SimpleMonteCarlo1(callVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(callVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianBMorig);
+		gaussianBMorig,
+		gatherer);
 
-	std::cout << "the call price gaussianBMorig is " << result << "\n";
+	std::cout << "the call price gaussianBMorig is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
-	result = SimpleMonteCarlo1(putVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(putVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianBMorig);
+		gaussianBMorig,
+		gatherer);
 
-	std::cout << "the put price gaussianBMorig is " << result << "\n";
+	std::cout << "the put price gaussianBMorig is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
-	result = SimpleMonteCarlo1(doubleDigitalVanilla,
+	gatherer.reset();
+	SimpleMonteCarlo1(doubleDigitalVanilla,
 		Spot,
 		volParam,
 		rParam,
 		NumberOfPaths,
-		gaussianBM);
+		gaussianBM,
+		gatherer);
 
-	std::cout << "the double digital price gaussianBM is " << result << "\n";
+	std::cout << "the double digital price gaussianBM is " << (gatherer.GetResultSoFar())[0][0] << "\n";
 
 	double tmp;
+	std::cout << "\nEnter a number to finish\n";
 	std::cin >> tmp;
 
 	return 0;
