@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="Main1.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="Parameters.h" />
