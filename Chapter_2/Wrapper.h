@@ -58,6 +58,11 @@ public:
 		return _dataPtr;
 	}
 
+	const T* operator->()const
+	{
+		return _dataPtr;
+	}
+
 private:
 	T* _dataPtr;
 

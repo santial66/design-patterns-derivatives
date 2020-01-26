@@ -25,7 +25,7 @@ void ConvergenceTable::DumpOneResult(double result)
 	return;
 }
 
-std::vector<std::vector<double>> ConvergenceTable::GetResultSoFar() const
+std::vector<std::vector<double> > ConvergenceTable::GetResultSoFar() const
 {
 	std::vector<std::vector<double> > tmp(_resultSoFar);
 	if (_stoppingPoint != _pathsDone * 2)
@@ -39,6 +39,18 @@ std::vector<std::vector<double>> ConvergenceTable::GetResultSoFar() const
 		}
 	}
 	return tmp;
+}
+
+void ConvergenceTable::reset()
+{
+	_inner->reset();
+	_stoppingPoint = 2;
+	_pathsDone = 0;
+
+	for (std::vector<std::vector<double> >::iterator it = _resultSoFar.begin(); it != _resultSoFar.end(); ++it)
+		it->clear();
+
+	_resultSoFar.clear();
 }
 
 ConvergenceTable * ConvergenceTable::clone() const

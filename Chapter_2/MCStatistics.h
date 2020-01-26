@@ -15,6 +15,8 @@ public:
 
 	virtual StatisticsMC* clone()const = 0;
 	virtual ~StatisticsMC() {}
+
+	void writeResults()const;
 private:
 
 };
