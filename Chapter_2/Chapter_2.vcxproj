@@ -148,6 +148,7 @@
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayoffBridge.cpp" />
     <ClCompile Include="Random1.cpp" />
+    <ClCompile Include="Random2.cpp" />
     <ClCompile Include="SimpleMCMain1.cpp" />
     <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayoffBridge.h" />
     <ClInclude Include="Random1.h" />
+    <ClInclude Include="Random2.h" />
     <ClInclude Include="SimpleMCMain1.h" />
     <ClInclude Include="Vanilla.h" />
     <ClInclude Include="Wrapper.h" />
