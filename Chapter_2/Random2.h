@@ -3,6 +3,7 @@
 #define RANDOM2_H
 
 #include <vector>
+#include <Normals.h>
 
 class RandomBase
 {
@@ -17,7 +18,7 @@ public:
 	virtual void setSeed(unsigned long seed) = 0;
 	virtual void reset() = 0;
 
-	virtual void getGaussians(std::vector<double> variates);
+	virtual void getGaussians(std::vector<double>& variates);
 	virtual void resetDimensionality(unsigned long newDimensionality);
 
 private:
