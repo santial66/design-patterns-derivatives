@@ -146,6 +146,7 @@
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />
+    <ClCompile Include="ParkMiller.cpp" />
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayoffBridge.cpp" />
     <ClCompile Include="Random1.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
+    <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayoffBridge.h" />
     <ClInclude Include="Random1.h" />
